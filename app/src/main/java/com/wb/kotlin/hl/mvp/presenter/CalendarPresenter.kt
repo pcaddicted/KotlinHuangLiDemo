@@ -13,7 +13,7 @@ import io.reactivex.schedulers.Schedulers
 /**
  * Created by 文博 on 2018/10/19
  */
-class CalendarPresenter:BasePresenter<CalendarContract.View>(),CalendarContract.Presenter {
+class CalendarPresenter:CalendarContract.Presenter() {
 
 
     companion object {
