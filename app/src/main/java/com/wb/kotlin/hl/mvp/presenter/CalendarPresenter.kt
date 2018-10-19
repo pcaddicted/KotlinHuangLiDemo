@@ -11,14 +11,13 @@ import io.reactivex.schedulers.Schedulers
 /**
  * Created by 文博 on 2018/10/19
  */
-class CalendarPresenter(val view: CalendarContract.View):CalendarContract.Presenter() {
+class CalendarPresenter(val view: CalendarContract.View):CalendarContract.Presenter {
 
-
+    var compositeDisposable: CompositeDisposable = CompositeDisposable()
 
     companion object {
         const val TAG = "CalentarPresenter"
     }
-
 
     override fun getDayCalentarData(date: String) {
         val disposable = RetrofitUtil
@@ -37,4 +36,7 @@ class CalendarPresenter(val view: CalendarContract.View):CalendarContract.Presen
     }
 
 
+    override fun detachView() {
+        compositeDisposable.clear()
+    }
 }

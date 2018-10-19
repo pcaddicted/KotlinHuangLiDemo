@@ -9,15 +9,15 @@ import com.wbb.kotlinapp.bean.CalentarDayResult
 /**
  * Created by 文博 on 2018/10/19
  */
-abstract class CalendarContract {
+interface  CalendarContract {
 
     interface View : BaseView {
         fun showDayCalentarData(calentarDayBean: CalentarDayBean<CalentarDayResult<CalentarDayData>>)
         fun showError(errorMsg: String)
     }
 
-    abstract class Presenter : BasePresenter<BaseView>() {
-        abstract  fun getDayCalentarData(date: String)
+    interface Presenter : BasePresenter {
+         fun getDayCalentarData(date: String)
     }
 
 }
