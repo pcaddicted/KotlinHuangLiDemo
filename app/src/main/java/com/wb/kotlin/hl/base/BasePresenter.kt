@@ -7,15 +7,15 @@ import java.lang.ref.WeakReference
 /**
  * Created by 文博 on 2018/10/19
  */
-abstract class BasePresenter<T> {
+abstract class BasePresenter<V> {
     /**
      * 绑定
      */
-    lateinit var viewRef: Reference<T>
+    lateinit var viewRef: Reference<V>
     lateinit var compositeDisposable: CompositeDisposable
 
-    fun attachView(view:T){
-        viewRef = WeakReference<T>(view)
+    fun attachView(view:V){
+        viewRef = WeakReference<V>(view)
         compositeDisposable = CompositeDisposable()
     }
 

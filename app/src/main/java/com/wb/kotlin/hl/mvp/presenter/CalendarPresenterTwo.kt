@@ -11,9 +11,7 @@ import io.reactivex.schedulers.Schedulers
 /**
  * Created by 文博 on 2018/10/19
  */
-class CalendarPresenter(val view: CalendarContract.View):CalendarContract.Presenter() {
-
-
+class CalendarPresenterTwo(val view: CalendarContract.View):CalendarContract.Presenter() {
 
     companion object {
         const val TAG = "CalentarPresenter"
