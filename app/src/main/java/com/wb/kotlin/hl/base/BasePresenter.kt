@@ -1,17 +1,29 @@
 package com.wb.kotlin.hl.base
 
+import io.reactivex.disposables.CompositeDisposable
+import java.lang.ref.Reference
+import java.lang.ref.WeakReference
+
 /**
  * Created by 文博 on 2018/10/19
  */
-interface BasePresenter {
+abstract class BasePresenter<T> {
     /**
-     * 开启订阅
+     * 绑定
      */
-    fun subscribe()
+    lateinit var viewRef: Reference<T>
+    lateinit var compositeDisposable: CompositeDisposable
+
+    fun attachView(view:T){
+        viewRef = WeakReference<T>(view)
+        compositeDisposable = CompositeDisposable()
+    }
 
     /**
-     * 结束订阅
+     * 解除绑定
      */
-    fun unsubscribe()
-
+    fun detachView(){
+        viewRef.clear()
+        compositeDisposable.clear()
+    }
 }

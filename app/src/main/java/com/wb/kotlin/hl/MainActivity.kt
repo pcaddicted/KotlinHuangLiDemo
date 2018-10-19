@@ -54,6 +54,7 @@ class MainActivity : AppCompatActivity(),CalendarContract.View {
     }
 
     override fun showProgressBar() {
+
     }
 
     override fun hideProgressBar() {
@@ -62,11 +63,11 @@ class MainActivity : AppCompatActivity(),CalendarContract.View {
 
     override fun onResume() {
         super.onResume()
-        presenter.subscribe()
+        presenter.attachView(this)
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        presenter.unsubscribe()
+        presenter.detachView()
     }
 }
