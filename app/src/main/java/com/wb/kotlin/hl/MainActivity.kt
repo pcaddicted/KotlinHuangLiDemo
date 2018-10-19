@@ -12,15 +12,15 @@ import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.sdk25.coroutines.onClick
 import org.jetbrains.anko.toast
 
-class MainActivity : BaseMvpActivity<CalendarContract.View, CalendarContract.Presenter>(), CalendarContract.View {
+class MainActivity : BaseMvpActivity<CalendarContract.View, CalendarPresenter>(), CalendarContract.View {
 
 
     override fun getLayoutId(): Int {
         return R.layout.activity_main
     }
 
-    override fun createPresenter(): CalendarContract.Presenter {
-        return CalendarPresenter(this)
+    override fun createPresenter(): CalendarPresenter {
+        return CalendarPresenter()
     }
 
     override fun initData() {

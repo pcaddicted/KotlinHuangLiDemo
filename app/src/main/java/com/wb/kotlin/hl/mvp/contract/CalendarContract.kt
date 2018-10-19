@@ -1,7 +1,7 @@
 package com.wb.kotlin.hl.mvp.contract
 
-import com.wb.kotlin.hl.base.BasePresenter
 import com.wb.kotlin.hl.base.BaseView
+import com.wb.kotlin.hl.base.IPresenter
 import com.wbb.kotlinapp.bean.CalentarDayBean
 import com.wbb.kotlinapp.bean.CalentarDayData
 import com.wbb.kotlinapp.bean.CalentarDayResult
@@ -16,7 +16,7 @@ interface  CalendarContract {
         fun showError(errorMsg: String)
     }
 
-    interface Presenter : BasePresenter {
+    interface Presenter : IPresenter<View> {
          fun getDayCalentarData(date: String)
     }
 
